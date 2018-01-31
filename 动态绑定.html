@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动态绑定</title>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var app=new Vue({//v-bind 命令 动态命令
+				el:'#app',
+				data:{
+					message:'页面加载于'+new Date().toLocaleString()
+				}
+
+				
+			})
+			var app2=new Vue({//条件语句
+				el:'#app2',
+				data:{
+					seen:true
+				}
+			})
+			var app3=new Vue({//循环语句
+				el:'#app3',
+				data:{
+					arrs:[
+						{text:'数学'},
+						{text:'语文'},
+						{text:'英语'}
+					]
+				}
+			})
+
+			var app4=new Vue({//事件的监听用到v-on
+				el:'#app4',//绑定
+				data:{//数据段
+					message:'hello vue.js!'
+				},
+				methods:{//方法段
+					update:function(){//方法名为update
+						this.message=this.message.split('').reverse().join('')
+					}
+				}
+			})
+
+			var app5=new Vue({//v-model 是表单输入和应用状态之间双向绑定
+				el:'#app5',
+				data:{
+
+					message:'hello vue.js'
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="app">
+		<span v-bind:title='message'>
+			鼠标停留几下显示
+		</span>
+	</div>
+	<div id="app2">
+		<p v-if='seen'>现在你看见我了</p>
+	</div>
+	
+	<div id="app3">
+		<ul>
+			<li v-for='arr in arrs'>{{arr.text}}</li>
+		</ul>
+	</div>
+	<div id="app4">
+		<p>{{message}}</p>
+		<input type="button" v-on:click='update' value="逆转" />
+
+	</div>
+	<div id="app5">
+		<p>{{message}}</p>
+		<input type="text" v-model='message'>
+	</div>
+</body>
+</html>
