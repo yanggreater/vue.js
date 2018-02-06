@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>v-for</title>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm=new Vue({
+				el:app,
+				data:{
+					obj:{
+						first:'yang',
+						last:'jing',
+						age:21
+					}
+					
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<ul id="app">
+		<li v-for="(value,key,index) in obj">{{index}},{{key}}:{{value}}</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,2 @@
+data 
+	可以使数据也可以是function，

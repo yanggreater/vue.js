@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>计算属性</title>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm=new Vue({
+				el:'#demo',
+				data:{
+					frist:'yang',
+					last:'jing',
+					full:'yang jing'
+				},
+				computed:{
+					fullname:{
+						get:function(){//计算属性的默认为getter
+							return this.frist+' '+this.last
+						},
+						set:function(newname){
+							var arrs=newname.split(' ')
+							this.frist=arrs[0]
+							this.last=arrs[arrs.length-1]
+						}
+					}
+				}
+
+			})
+			vm.fullname='liu si'//自动调用了fullname的set函数
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="demo">{{fullname}}</div>
+</body>
+</html>

@@ -38,7 +38,7 @@
 				},
 				methods:{//方法段
 					update:function(){//方法名为update
-						this.message=this.message.split('').reverse().join('')
+						this.message=this.message.split('').reverse().join('');//翻表达式this 指向app4实例
 					}
 				}
 			})
@@ -70,8 +70,9 @@
 	</div>
 	<div id="app4">
 		<p>{{message}}</p>
-		<input type="button" v-on:click='update' value="逆转" />
+		<p>{{update}}</p>
 
+		<input type="button" v-on:click='update' value="逆转">
 	</div>
 	<div id="app5">
 		<p>{{message}}</p>

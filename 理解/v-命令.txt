@@ -1,0 +1,17 @@
+指令： v- 当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM
+
+
+v-bind   动态绑定 有参数  有缩写<a :href="url">
+
+	指令可以用于响应式地更新 HTML 属性：
+<a v-bind:href="url">...</a>在这里 href 是参数，告知 v-bind 指令将该元素的 href 属性与表达式 url 的值绑定
+-----------------------------------------------------------------------------
+v-if   对应v-else
+v-for
+v-once  	是指绑定的值不会改变了
+v-on	绑定事件   有参数  有缩写  <a @click="doSomething">
+v-model  绑定数据在   input  实现显示和输入的同步更新
+v-html 是输出html文本产生的结果  而不是html的文本内容
+	<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+v-show   不管初始条件是什么，元素始终会被渲染并保留在 DOM 中，并且只是简单地基于 CSS 进行切换。而v-if是作用于DOM上
