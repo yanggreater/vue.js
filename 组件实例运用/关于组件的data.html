@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			Vue.component('my',{
+				template:"<button v-on:click='counter+=1'>{{counter}}</button>",
+				data:function(){
+					return {counter:0}//此处的是为了让每一个实例化的组件都有一个自己的数据
+				}
+			})
+			var vm=new Vue({
+				el:'#app'
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="app">
+		<my></my>
+		<my></my>
+		<my></my>
+
+	</div>
+</body>
+</html>

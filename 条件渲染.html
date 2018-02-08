@@ -23,15 +23,15 @@
 <body>
 	<div id="app">
 		<template v-if="loginType === 'username'">
-				  <label>Username</label>
+				  <label >Username</label>
 				  <input placeholder="Enter your username" key="username-input">
 		</template>
 		<template v-else>
-				  <label>Email</label>
+				  <label for="qwe">Email</label>
 				  <input placeholder="Enter your email address" key="email-input">
 		</template>
 		<br>
-		<input type="button" v-on:click='change' value="change loginType" />
+		<input type="button" v-on:click='change' value="change loginType" id="qwe" />
 	</div>
 </body>
 </html>

@@ -11,4 +11,4 @@ computed: {
 
 方法属性  methods
 
-侦听属性  watch
+侦听属性  watch  一般是用来对数据的改变时，所要做的事情
