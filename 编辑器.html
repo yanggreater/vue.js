@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Markdown编辑器</title>
+	<script src="https://unpkg.com/lodash@4.16.0"></script>
+	<style type="text/css">
+		html,body,#editor {
+		  margin: 0;
+		  height: 100%;
+		  font-family: 'Helvetica Neue', Arial, sans-serif;
+		  color: #333;
+		}
+
+		textarea, #editor div {
+		  display: inline-block;
+		  width: 49%;
+		  height: 100%;
+		
+		  padding: 0 20px;
+		}
+
+		textarea {
+		  border: none;
+		  border-right: 1px solid #ccc;
+		  background-color: #f6f6f6;
+		  font-size: 14px;
+		  font-family: 'Monaco', courier, monospace;
+		  padding: 20px;
+		}
+
+		code {
+		  color: #f66;
+		}
+	</style>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm=new Vue({
+				el:'#edit',
+				data:{
+					message:'#hello'
+				},
+				methods:{
+					complie:_.debounce(function(e){//目的是为了延迟_.debounce
+						this.message=e.target.value
+					},300)
+				}
+			})
+
+		}
+	</script>
+</head>
+<body>
+	<div id="edit">
+		<textarea :value='message' v-on:input='complie'></textarea>
+		<div v-html='message'></div>
+	</div>
+</body>
+</html>
