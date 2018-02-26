@@ -1,0 +1,9 @@
+uppercase
+
+lowercase
+
+currency
+
+debounce  配合事件使用 意思是指事件执行延迟多长时间 
+
+limitBy （几个，从哪开始）    是指限制过滤器

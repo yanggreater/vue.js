@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件对象和事件冒泡</title>
+	<script src="vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			new Vue({
+				el:'#box',
+				data:{
+
+				},
+				methods:{
+					show:function(ev){//ev为传过来的事件对象
+						alert(ev);
+						//ev.canelBubble=true;
+					},
+					show2:function(){
+						alert(2);
+					}
+				}
+			})
+		};
+	</script>
+</head>
+<body>
+	<!--事件冒泡-->
+	<div id="box" @click="show2()">
+		<input type="button" name="" value="点击" @click.stop="show()">
+	</div>
+	<button @contextmenu.prevent="show2()">默认行为</button>
+</body>
+</html>

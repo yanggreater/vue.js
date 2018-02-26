@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>数据监听</title>
+	<script src="vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					a:{name:'杨景校',sex:'男'},
+					b:1
+				}
+			});
+
+			vm.$watch('a',function(){
+				alert(vm.b);
+			},{deep:true});//对于复杂的数据要开启深度监听,若是简单的数据就不用开启
+
+			document.onmousedown=function(){
+				vm.a.name='黄思聪';
+			}
+		}
+	</script>
+</head>
+<body>	
+	<div id="app">
+		{{a}}
+		<br>
+		{{b}}
+	</div>
+</body>
+</html>

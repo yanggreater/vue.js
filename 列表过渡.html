@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>列表过渡</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var vm=new Vue({
+				el:'#app',
+				data:{
+					items:[1,2,3,4,5,6,7,8,9],
+					number:10
+				},
+				methods:{
+					randomindex:function(){
+						return Math.floor(Math.random()*this.items.length)
+					},
+					add:function(){
+						this.items.splice(this.randomindex(),0,this.number++)
+					},
+					remove:function(){
+						this.items.splice(this.randomindex(),1)
+					},
+					shuffle:function(){
+						this.items=_.shuffle(this.items)
+					}
+				}
+			})
+		}
+	</script>
+	<style type="text/css">
+		.app-list-item{
+			display: inline-block;
+			transition: all,1s;
+			margin-right: 10px;
+		}
+		.app-list-enter,.app-list-leave-to{
+			transform: translateY(30px);
+			opacity: 0;
+		}
+		.app-list-leave-active{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="shuffle" @click="shuffle"/>
+		<input type="button" value="add" @click="add"/>
+		<input type="button" value="remove" @click="remove"/>
+		<transition-group name='app-list' tag='p'>
+			<span v-for='item in items' :key='item' class="app-list-item">{{item}}</span>
+		</transition-group>
+	</div>
+</body>
+</html>

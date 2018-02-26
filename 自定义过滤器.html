@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>循环数据</title>
+	<script src="vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			Vue.filter('data',function(value){//自定义时间过滤器
+				var oDate=new Date(value);
+				return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+'-'+'  '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+			})
+			new Vue({
+				el:'#app',
+				data:{
+					mydata:Date.now()//时间戳
+				},
+				
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="app">
+		<p>{{mydata | data}}</p>
+	</div>
+	
+</body>
+</html>

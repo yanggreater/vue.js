@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>组件</title>
+	<script src="vue.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			new Vue({
+				el:'#app',
+				components:{
+					'aaa':{
+						template:'<h3>我是aaa组件<bbb></bbb></h3>',
+						components:{
+							'bbb':{
+								template:'<h6>我是bbb组价</h6>'
+							}
+						}
+					}
+				}
+			})
+		}
+	</script>
+</head>
+<body>	
+	<div id="app">
+		<aaa></aaa>
+	</div>
+</body>
+</html>
